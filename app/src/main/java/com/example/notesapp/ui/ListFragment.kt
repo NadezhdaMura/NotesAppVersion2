@@ -1,7 +1,6 @@
 package com.example.notesapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,10 +26,17 @@ class ListFragment: Fragment(),CoroutineScope {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val repo = NoteRepository()
+        val adapter = NotesAdapter{
+            launch {
+                repo.deleteNote(it)
+            }
+        }
+        notesList.adapter = adapter
+
         launch {
-            notesList.adapter = NotesAdapter(repo.getAllNotes())
+            adapter.addNotes(repo.getAllNotes())
         }
 
     }
-
+    
 }

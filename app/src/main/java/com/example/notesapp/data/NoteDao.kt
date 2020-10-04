@@ -8,9 +8,12 @@ import androidx.room.Query
 @Dao
 interface NoteDao {
     @Insert
-    fun insertNote(note: Note): Long
+   suspend fun insertNote(note: Note): Long
+
     @Delete
-    fun deleteNote(note: Note)
-    @Query("select*from notes")//* значит что нужно получить все поля
-    fun getAllNotes(): List<Note>
+    suspend fun deleteNote(note: Note)
+
+    @Query("select * from notes") //* значит что нужно получить все поля
+    suspend fun getAllNotes(): List<Note>
+
 }

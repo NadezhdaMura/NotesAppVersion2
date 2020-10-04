@@ -31,11 +31,12 @@ class CreatingFragment : Fragment(),CoroutineScope {
             val title = noteTitle.text.toString()
             val text = noteText.text.toString()
 
-            if (title.isNotBlank()&& text.isNotBlank()) {
+            if (title.isNotBlank() && text.isNotBlank()) {
                 launch {
                 val id = repo.createNewNote(title,text)
-                Toast.makeText(context,"Inserted with id $id", Toast.LENGTH_LONG).show()
+                Toast.makeText(context,"Your entry is ready", Toast.LENGTH_LONG).show()
             }
+
             }
         }
     }

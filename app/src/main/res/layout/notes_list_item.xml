@@ -3,24 +3,47 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:background="?selectableItemBackground"
+    android:gravity="center_vertical"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp">
+
     <TextView
         android:id="@+id/notesTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="22sp"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="22dp"
+        android:textColor="@android:color/white"
         tools:text="Title"/>
+
+
     <TextView
         android:id="@+id/notesText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="22dp"
+        android:textColor="#FFFFFF"
         tools:text="Some text"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/buttonDeleteNote"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/delete_vector_24"
+        />
 
 </LinearLayout>
