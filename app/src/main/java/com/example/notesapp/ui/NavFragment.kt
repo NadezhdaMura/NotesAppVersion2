@@ -1,5 +1,6 @@
 package com.example.notesapp.ui
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,8 +21,9 @@ class NavFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        createNewButton.setOnClickListener {
+        var sound = MediaPlayer.create(requireContext(), R.raw.sound)
+        createNewButtonNav.setOnClickListener {
+            sound!!.start()
             fragmentManager?.beginTransaction()
                 ?.replace(R.id.fragmentContainer,CreatingFragment())
                 ?.addToBackStack(null)

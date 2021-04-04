@@ -1,8 +1,10 @@
 package com.example.notesapp.ui
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.R
 import com.example.notesapp.data.Note
@@ -41,8 +43,14 @@ class NotesAdapter (
     class NotesHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
         fun bind(note: Note, deleteNote: (Note) -> Unit) = itemView.apply {
+            var list = listOf("#000000","#DD2929")
+            var list2 = listOf(R.drawable.ic_delete,R.drawable.ic_delete_black,R.drawable.ic_delete_green,
+            R.drawable.ic_delete_yellow)
             notesTitle.text = note.title
             notesText.text = note.text
+            notesTitle.setTextColor(Color.parseColor(list.random()))
+            notesText.setTextColor(Color.parseColor(list.random()))
+            buttonDeleteNote.setImageDrawable(resources.getDrawable(list2.random()))
             buttonDeleteNote.setOnClickListener {
                 deleteNote(note)
             }

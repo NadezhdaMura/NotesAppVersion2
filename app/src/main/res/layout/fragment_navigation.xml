@@ -22,7 +22,7 @@
 
 
         <Button
-            android:id="@+id/createNewButton"
+            android:id="@+id/createNewButtonNav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create a new note"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text="List of Notes"
             android:textSize="22sp"
-            android:layout_below="@+id/createNewButton"
+            android:layout_below="@+id/createNewButtonNav"
             android:layout_centerInParent="true"/>
 
 

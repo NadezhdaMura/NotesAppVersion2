@@ -1,5 +1,6 @@
 package com.example.notesapp.ui
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,28 +15,28 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-class CreatingFragment : Fragment(),CoroutineScope {
-    override val coroutineContext: CoroutineContext=Dispatchers.Main
+class CreatingFragment : Fragment(), CoroutineScope {
+    override val coroutineContext: CoroutineContext = Dispatchers.Main
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_creating,container,false)
+        return inflater.inflate(R.layout.fragment_creating, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         val repo = NoteRepository()
         createNewButton.setOnClickListener {
             val title = editTextTitle.text.toString()
             val text = editTextText.text.toString()
-
             if (title.isNotBlank() && text.isNotBlank()) {
                 launch {
-                val id = repo.createNewNote(title,text)
-                Toast.makeText(context,"Your entry is ready", Toast.LENGTH_LONG).show()
-            }
+                    val id = repo.createNewNote(title, text)
+                    Toast.makeText(context, "Your entry is ready", Toast.LENGTH_LONG).show()
+                }
 
             }
         }
