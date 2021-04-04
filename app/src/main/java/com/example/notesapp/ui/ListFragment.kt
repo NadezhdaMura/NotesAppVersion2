@@ -31,7 +31,7 @@ class ListFragment: Fragment(),CoroutineScope {
                 repo.deleteNote(it)
             }
         }
-        notesList.adapter = adapter
+        recyclerView.adapter = adapter
 
         launch {
             adapter.addNotes(repo.getAllNotes())

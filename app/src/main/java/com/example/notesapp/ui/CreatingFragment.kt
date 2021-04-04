@@ -27,9 +27,9 @@ class CreatingFragment : Fragment(),CoroutineScope {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val repo = NoteRepository()
-        createNew.setOnClickListener {
-            val title = noteTitle.text.toString()
-            val text = noteText.text.toString()
+        createNewButton.setOnClickListener {
+            val title = editTextTitle.text.toString()
+            val text = editTextText.text.toString()
 
             if (title.isNotBlank() && text.isNotBlank()) {
                 launch {

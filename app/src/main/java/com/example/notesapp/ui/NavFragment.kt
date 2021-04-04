@@ -21,14 +21,14 @@ class NavFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        creatingFragmentBtn.setOnClickListener {
+        createNewButton.setOnClickListener {
             fragmentManager?.beginTransaction()
                 ?.replace(R.id.fragmentContainer,CreatingFragment())
                 ?.addToBackStack(null)
                 ?.commit()
         }
 
-        notesListBtn.setOnClickListener {
+        listOfNotes.setOnClickListener {
             fragmentManager?.beginTransaction()
                 ?.replace(R.id.fragmentContainer,ListFragment())
                 ?.addToBackStack(null)
